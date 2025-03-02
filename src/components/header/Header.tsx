@@ -4,12 +4,12 @@ import Link from 'next/link'
 
 const Header = () => {
 	return (
-		<header className='max-w-[1360px] w-full h-[51px] mx-auto flex justify-between items-center'>
+		<header className='max-w-[1360px] w-full h-[51px] mx-auto flex items-center'>
 			<div className='bg-white rounded-[50%] w-7 h-7'></div>
 			<LinksHeader />
 			<Link
 				href='/register'
-				className='flex items-center gap-2 text-white hover:text-[#6DFFA6] stroke-[#6DFFA6]'
+				className='flex items-center ml-[404.5px] gap-2 text-white hover:text-[#6DFFA6] stroke-[#6DFFA6]'
 			>
 				<svg
 					width='15'
@@ -25,7 +25,7 @@ const Header = () => {
 						strokeLinecap='round'
 					/>
 				</svg>
-				<span>Создать аккаунт</span>
+				<span className='text-[13px]'>Создать аккаунт</span>
 			</Link>
 		</header>
 	)

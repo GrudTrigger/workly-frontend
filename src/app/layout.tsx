@@ -11,12 +11,12 @@ import { Montserrat } from 'next/font/google'
 // 			style: 'normal',
 // 		},
 // 		{
-// 			path: '../../public/Involve-Bold.ttf',
+// 			path: '../../Involve-Bold.ttf',
 // 			weight: '700',
 // 			style: 'normal',
 // 		},
 // 		{
-// 			path: '../../public/Involve-Oblique.ttf',
+// 			path: '../../Involve-Oblique.ttf',
 // 			weight: '400',
 // 			style: 'italic',
 // 		},
