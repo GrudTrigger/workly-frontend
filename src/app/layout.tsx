@@ -1,8 +1,7 @@
-import type { Metadata } from 'next'
-import localFont from 'next/font/local'
-import './globals.css'
 import Header from '@/components/header/Header'
+import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
+import './globals.css'
 // const involve = localFont({
 // 	src: [
 // 		{
@@ -33,8 +32,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
 	children,
+	modal,
 }: Readonly<{
 	children: React.ReactNode
+	modal: React.ReactNode
 }>) {
 	return (
 		<html lang='en'>
@@ -43,6 +44,7 @@ export default function RootLayout({
 			>
 				<Header />
 				{children}
+				{modal}
 			</body>
 		</html>
 	)
