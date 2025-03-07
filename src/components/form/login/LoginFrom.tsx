@@ -1,8 +1,23 @@
 'use client'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { RegisterFormInputs } from '@/types/FormsTypes'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
 export default function LoginFrom() {
 	const router = useRouter()
+
+	const {
+		register,
+		handleSubmit,
+		watch,
+		formState: { errors },
+	} = useForm()
+
+	const onSubmit: SubmitHandler<RegisterFormInputs> = data => console.log(data)
+
 	return (
 		<div className='w-[560px] h-[786px] bg-[#171817] rounded-[20px] border border-white/5 pt-4 pb-[228px] pl-4'>
 			<button onClick={router.back} className=' cursor-pointer'>
@@ -60,7 +75,46 @@ export default function LoginFrom() {
 				<h2 className='text-center text-white text-[45px] font-semibold'>
 					Регистрация
 				</h2>
-				<form></form>>
+				<form
+					onSubmit={handleSubmit(onSubmit)}
+					className='mt-10 flex flex-col items-center'
+				>
+					<div className='flex flex-col gap-3'>
+						<Input
+							className='w-[300px] h-[51px] p-4 text-white rounded-[20px] border-[1px] border-[rgba(255,255,255,0.10)]'
+							placeholder='Имя'
+							{...register('name', { required: true })}
+						/>
+						<Input
+							className='w-[300px] h-[51px] p-4 text-white rounded-[20px] border-[1px] border-[rgba(255,255,255,0.10)]'
+							placeholder='Почта'
+							type='email'
+							{...register('email', { required: true })}
+						/>
+						<Input
+							className='w-[300px] h-[51px] p-4 text-white rounded-[20px] border-[1px] border-[rgba(255,255,255,0.10)]'
+							placeholder='Пароль'
+							type='password'
+							{...register('password', { required: true })}
+						/>
+					</div>
+					<div className='mt-8 mx-auto'>
+						<Button className='w-[300px] px-3 py-7 bg-white rounded-[100px] text-[#010101] cursor-pointer hover:bg-[#6DFFA6] transition-all'>
+							Зарегистрироваться
+						</Button>
+						<div className='mt-[17.5px] flex justify-center items-center gap-1'>
+							<span className='text-[#636363] text-[12px] font-medium'>
+								Уже есть аккаунт?
+							</span>
+							<Link
+								href='/login'
+								className='text-[#A9A9A9] text-[14px] font-medium hover:text-[#6DFFA6]'
+							>
+								Войти
+							</Link>
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	)
